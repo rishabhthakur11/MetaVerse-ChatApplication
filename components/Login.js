@@ -25,8 +25,6 @@ function Login() {
 
   return (
     <div className="bg-black  h-full relative text-white">
-      <h1>I am a Login screen</h1>
-
       <div>{/* Going to put the logo of the Application */}</div>
       <div className="w-full h-screen">
         {/* Nice background */}
