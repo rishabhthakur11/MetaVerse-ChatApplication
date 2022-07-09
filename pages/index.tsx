@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import Login from "../components/Login";
+import { useMoralis } from "react-moralis";
 
 const Home: NextPage = () => {
-  const isAuthenticated = false;
+  const { isAuthenticated } = useMoralis();
   if (!isAuthenticated) return <Login />;
   return (
     <div className="h-screen ">

@@ -1,23 +1,15 @@
 import "../styles/globals.css";
-import { useEffect } from "react";
+import { MoralisProvider } from "react-moralis";
 import type { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    const threeScript = document.createElement("script");
-    threeScript.setAttribute("id", "threeScript");
-    threeScript.setAttribute(
-      "src",
-      "https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"
-    );
-    document.getElementsByTagName("head")[0].appendChild(threeScript);
-    return () => {
-      if (threeScript) {
-        threeScript.remove();
-      }
-    };
-  }, []);
-  return <Component {...pageProps} />;
+  return (
+    <MoralisProvider
+      appId= {process.env.NEXT_PUBLIC_APP_ID}
+      serverUrl= {process.env.NEXT_PUBLIC_SERVER_ID}>
+      <Component {...pageProps} />
+    </MoralisProvider>
+  );
 }
 
 export default MyApp;
